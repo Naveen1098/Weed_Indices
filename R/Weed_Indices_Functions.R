@@ -290,7 +290,7 @@ All_Indices<- function(method= "All"){
                   "WSE"=WSE1,
                   "FDR" = FDR1)
   }
-  print(res_list)
+  #print(res_list)
   path_user <- dirname(fname)
   path_user
   newfilename <- "WeedIndices_Results.xlsx"
