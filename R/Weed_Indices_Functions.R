@@ -1,6 +1,6 @@
 # Code Written by: Mr Naveen Kumar P
 # Guided by: Dr. Prabhu G
-library(openxlsx)
+
 #------------- Functions ----------------------------------------------------
 #' Weed control efficiency
 #'
@@ -297,13 +297,12 @@ All_Indices<- function(method= "All"){
   newfilepath <- file.path(path_user, newfilename)
   newfilepath
   
-  wb = createWorkbook()
-  
-  #Iterate the same way as PavoDive, slightly different (creating an anonymous function inside Map())
-  Map(function(data, nameofsheet){     
-    addWorksheet(wb, nameofsheet)
-    writeData(wb, nameofsheet, data,rowNames=TRUE)
+  wb = openxlsx::createWorkbook()
+  Map(function(data, nameofsheet){
+    openxlsx::addWorksheet(wb, nameofsheet)
+    openxlsx::writeData(wb, nameofsheet, data,rowNames=TRUE)
   }, res_list, names(res_list))
-  saveWorkbook(wb, file = newfilepath, overwrite = TRUE)
+  openxlsx::saveWorkbook(wb, file = newfilepath, overwrite = TRUE)
   return(res_list);
+  
 }
