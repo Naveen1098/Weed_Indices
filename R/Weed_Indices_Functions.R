@@ -134,7 +134,7 @@ Weed_management_index<- function(YT,YC,WT,WC){
 #' @export
 # 7. Agronomic management index
 Agronomic_management_index<- function(YT,YC,WT,WC){
-  Result <- (((YT-YC)/YC)-((WC-WT)/WC))/((WC/WT)/WC);
+  Result <- (((YT-YC)/YC)-((WC/WT)/WC))/((WC/WT)/WC);
   return(Result);
 }
 
