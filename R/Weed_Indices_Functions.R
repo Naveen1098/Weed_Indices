@@ -117,7 +117,7 @@ Herbicide_efficiency_index<- function(YT,YC,WT,WC){
 #' @export
 # 6. Weed management index
 Weed_management_index<- function(YT,YC,WT,WC){
-  Result <- ((YT-YC)/YC)/((WC/WT)/WC);
+  Result <- (((YT-YC)/YC)*100)/(((WC/WT)/WC)*100);
   return(Result);
 }
 
@@ -134,7 +134,7 @@ Weed_management_index<- function(YT,YC,WT,WC){
 #' @export
 # 7. Agronomic management index
 Agronomic_management_index<- function(YT,YC,WT,WC){
-  Result <- (((YT-YC)/YC)-((WC/WT)/WC))/((WC/WT)/WC);
+  Result <- ((((YT-YC)/YC)*100)-(((WC/WT)/WC)*100))/(((WC/WT)/WC)*100);
   return(Result);
 }
 
