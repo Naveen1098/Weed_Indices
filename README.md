@@ -1,6 +1,6 @@
 # `WeedIndices` Weed Indices in agronomy
 <!-- badges: start -->
-### Authors: Naveen Kumar P, Prabhu Govindasamy, Rishi Raj, Vijay Pooniya, Sanjay Singh Rathore, and T.K.Das
+### Authors: Naveen Kumar Purushothaman, Prabhu Govindasamy, Rishi Raj, T.K.Das, Vijay Pooniya, and Sanjay Singh Rathore
 <!-- badges: end -->
 <em><p align="right"> Calculate everything in a go!!! </p></em>
 
