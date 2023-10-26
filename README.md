@@ -1,11 +1,11 @@
-# `Weed_Indices` Weed Indices in agronomy
+# `WeedIndices` Weed Indices in agronomy
 <!-- badges: start -->
 ### Authors: Naveen Kumar P, Prabhu Govindasamy, Rishi Raj, Vijay Pooniya, Sanjay Singh Rathore, and T.K.Das
 <!-- badges: end -->
 <em><p align="right"> Calculate everything in a go!!! </p></em>
 
 ## About
-The `Weed_Indices` package provides high-performing functionality for 
+The `WeedIndices` package provides high-performing functionality for 
 calculating different weed indices in a single run.
 
 Weed management efficiency is evaluated by calculating various indices such as Weed Control Efficiency (WCE), 
@@ -71,22 +71,47 @@ __`All_Indices`__: This function calculates all the indices and export the resul
 named "WeedIndices_Results.xlsx" in the same working directory of the input file.
 
 
-## Analysis in R involves multiple steps
+## Installation 
+If you want to install the package and try its functionality, it is very simple,
+just type the following line in your `R` console:
 
-###Step 1: Install R and RStudio  
+Step 1: Install the pre-required packages: 
+```
+install.packages('devtools')
+install.packages('openxlsx')
+```
+Step 2: Call the required libraries: 
+```
+library(devtools)
+library(openxlsx)
+```
+Step 3: Installing the weed indices package: 
+```
+install_github("Naveen1098/Weed_Indices")
+```
+## Example 
+After installing `Weed_Indices` you should be also able to run the following lines:
+```
+# Required libraries
+library(devtools)
+library(openxlsx)
+library(WeedIndices)
 
-###Step 2: Install the pre-required packages: devtools and openxlsx
+# Calculating all indices
+All_Indices () 
+```
+A new window opens for selecting an excel containing the data as per the prescribed format. 
+The data file format is attached above named "Example_data_format.xlsx"
 
-install.packages(devtools)
+*** Note: If the data is not saved in the prescribed format the program won't run properly. Be cautious ****
 
-Step 3: library(devtools)
-Step 4: install_github(Naveen1098/Weed_Indices)
-Step 5: library(WeedIndices)
-Step 6: install.packages("openxlsx")
-Step 7: library(openxlsx)
-Step 8: Type and run the All_Indices () 
-Step 9: A new window opens for selecting an excel containing the data as per the prescribed format. 
-Step 10: Results will be stored in the same folder where you have the data. The name of excel file is WeedIndices_Results.
-Data format for the analysis
-Attach our excel sheet
+Results will be stored in the same folder where you have the data. The name of excel file is "WeedIndices_Results.xlsx".
 
+## Citing the package
+Simply type and you will get the info you need:
+```
+citation(package = "WeedIndices")
+```
+## Bug report and development version
+
+You can create an [issue](https://github.com/Naveen1098/Weed_Indices/issues) on github. 
