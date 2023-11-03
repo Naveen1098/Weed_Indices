@@ -270,7 +270,7 @@ All_Indices<- function(method= "All"){
   if (nrow(RDW_df>0)) {
     if (nrow(RDW_df >=2)) {
       n1_rwd <-nrow(RDW_df)
-      RDW1 <-as.data.frame(RDW(RDW_df[1:(n1_rwd-1),2]))
+      RDW1 <-as.data.frame(RDW(RDW_df[1:(n1_rwd),2]))
       rownames(RDW1)<-RDW_df[1:(n1_rwd),1]
       colnames(RDW1)<-c("Relative dry weight")
     }else{stop("Minimum 2 observations is required for calculation")}
