@@ -20,55 +20,50 @@ functions:
   
 __`Weed_control_efficiency`__:
 
-WCE=  (Weed density in control plot-Weed density in treated plot)/(Weed density in control plot)×100
+$$ WCE = {{ (Weed~ density~ in~ control~ plot - Weed~ density~ in~ treated~ plot)\over Weed~ density~ in~ control~ plot}×100} $$
 
 __`Weed_control_index`__:
 
-WCI=  (Weed dry matter in control plot - Weed dry matter in treated plot)/(Weed dry matter in control plot)×100
+$$ WCI=  {{(Weed~ dry~ matter~ in~ control~ plot~ - Weed~ dry~ matter~ in~ treated~ plot~)\over Weed~ dry~ matter~ in~ control~ plot~}×100} $$
 
 __`Weed_index `__:
 
-WI=  ( "Yield in weed free plot– Yield in treated plot" )/"Yield in weed free plot" ×100
+$$ WI= {{ (Yield~ in~ weed~ free~ plot~ –~ Yield~ in~ treated~ plot~)\over Yield~ in~ weed~ free~ plot~}×100} $$
 
 __`Weed_persistence_index`__:
 
-WPI=  ( "Weed dry weight in treated plot"  )/"Weed dry weight in control plot" ×(Weed density in control plot )/(Weed density in treated plot )
+$$ WPI=  {Weed~ dry~ weight~ in~ treated~ plot~ \over Weed~ dry~ weight~ in~ control~ plot~}×{Weed~ density~ in~ control~ plot~ \over Weed~ density~ in~ treated~ plot~} $$
 
 __`Herbicide_efficiency_index`__:
 
-HEI = ( Yield in treated plot-Yield in control plot )/"Yield in control plot" /(Weed dryweight in treated plot )/(Weed dryweight in control plot )
+$$ HEI = {(Yield~ in~ treated~ plot~ -~ Yield~ in~ control~ plot~) \over Yield~ in~ control~ plot~} \times {Weed~ dry~ weight~ in~ treated~ plot~ \over Weed~ dry~ weight~ in~ control~ plot}~ $$
 
 __`Weed_management_index`__:
 
-YC Yield in control plot
-
-YT Yield in treated plot
-
-WT Weed dry weight in treated plot
-
-WC Weed dry weight in control plot
-
-WMI =(((YT-YC)/YC)*100)/(((WC/WT)/WC)*100)
+$$ WMI = {{{(Yield~ in~ treated~ plot~ - Yield~ in~ control~ plot~) \over Yield~ in~ control~ plot~} \times 100} \over {{{(Weed~ dry~ weight~ in~ control~ plot~ /~ Weed~ dry~ weight~ in~ treated~ plot)} \over Weed~ dry~ weight~ in~ control~ plot~} \times 100}}$$
 
 __`Agronomic_management_index`__:
-
-AMI = (((YT-YC)/YC)*100)-((WC/WT)/WC)*100)/((WC/WT)/WC)*100);
-
+```math
+ AMI = {{[{{(Yield~ in~ treated~ plot~ - Yield~ in~ control~ plot~) \over Yield~ in~ control~ plot~} \times 100}] - [{{{(Weed~ dry~ weight~ in~ control~ plot~ /~ Weed~ dry~ weight~ in~ treated~ plot)} \over Weed~ dry~ weight~ in~ control~ plot~} \times 100}]} 
+\over {{{(Weed~ dry~ weight~ in~ control~ plot~ /~ Weed~ dry~ weight~ in~ treated~ plot)} \over Weed~ dry~ weight~ in~ control~ plot~} \times 100}}
+```
 __`IWMI`__:
-IWMI = (WMI+ AMI)/2
+
+$$ IWMI = {(WMI~ + AMI) \over 2} $$
 
 __`RDW`__:
-RDW =(Dry weight of a weed species per unit area ×100)/("Total dry weigh" t of composite weed in that unit area)
+
+$$ RDW ={{Dry~ weight~ of~ a~ weed~ species~ per~ unit~ area~ \over Total~ dry~ weight~ of~ composite~ weed~ in~ that~ unit~ area~}\times 100} $$
 
 __`WSE`__:
 
-WSI = (("Mean dry weight of weeds in sole crop – Mean dry weight of weeds in intercrop" ))/"Mean dry weight of weeds in sole crop" x 100
+$$ WSI = {{(Mean~ dry~ weight~ of~ weeds~ in~ sole~ crop~ –~  Mean~ dry~ weight~ of~ weeds~ in~ intercrop~)\over Mean~ dry~ weight~ of~ weeds~ in~ sole~ crop~}\times 100} $$
 
 __`FDR`__:
-F:D = ("Fresh weight of weed"  samples)/("Dry weight of weeds s" amples)
 
-__`All_Indices`__: This function calculates all the indices and export the results in the console as well as a excel workbook 
-named "WeedIndices_Results.xlsx" in the same working directory of the input file.
+$$ F:D = {Fresh~ weight~ of~ weed~ samples~ \over Dry~ weight~ of~ weeds~ samples} $$
+
+__`All_Indices`__: This function calculates all the indices and export the results in the console as well as a excel workbook named **"WeedIndices_Results.xlsx"** in the same working directory of the input file.
 
 
 ## Installation 
@@ -101,11 +96,11 @@ library(WeedIndices)
 All_Indices () 
 ```
 A new window opens for selecting an excel containing the data as per the prescribed format. 
-The data file format is attached above named "Example_data_format.xlsx"
+The data file format is attached above named __`"Example_data_format.xlsx"`__
 
-*** Note: If the data is not saved in the prescribed format the program won't run properly. Be cautious ****
+**Note: If the data is not saved in the prescribed format the program won't run properly. Be cautious**
 
-Results will be stored in the same folder where you have the data. The name of excel file is "WeedIndices_Results.xlsx".
+Results will be stored in the same folder where you have the data. The name of excel file is **"WeedIndices_Results.xlsx"**.
 
 ## Citing the package
 Simply type and you will get the info you need:
