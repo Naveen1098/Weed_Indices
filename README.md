@@ -97,7 +97,7 @@ All_Indices ()
 ```
 A new window opens for selecting an excel containing the data as per the prescribed format. 
 The data file format is attached above named __`"Example_data_format.xlsx"`__ [click here to download](https://github.com/Naveen1098/Weed_Indices/blob/main/Example_data_format.xlsx "download")
-<a href="https://github.com/Naveen1098/Weed_Indices/main/Example_data_format.xlsx )" title="Download" download>Download</a>
+<a href="https://github.com/Naveen1098/Weed_Indices/blob/main/Example_data_format.xlsx )" title="Download" download>Download</a>
 
 
 **Note: If the data is not saved in the prescribed format the program won't run properly. Be cautious**
