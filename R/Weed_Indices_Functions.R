@@ -229,17 +229,17 @@ All_Indices<- function(...){
     df <- openxlsx::read.xlsx(fname,sheet = sh_name[nk],startRow = 2)
     no_col <- ncol(df)
   
-  if(no_col == 10){
+  if(no_col == 12){
       Indices_df <- df[,c(2:4)]
       Indices_df <- na.omit(Indices_df)
       
       RDW_df <- df[,c(5:6)]
       RDW_df <- na.omit(RDW_df)
       
-      WSE_df <-df[,c(7:8)]
+      WSE_df <-df[,c(7:9)]
       WSE_df <- na.omit(WSE_df)
       
-      FDW_df <-df[,c(9:10)]
+      FDW_df <-df[,c(10:12)]
       FDW_df <- na.omit(FDW_df)
       if(nrow(Indices_df >0)){
         if (nrow(Indices_df >=3)) {
@@ -290,20 +290,24 @@ All_Indices<- function(...){
       }else{warning("There is no data for calculating the Relative dry weight")}
       
       if (nrow(WSE_df>0)) {
-        WSE1 <-as.data.frame(WSE(WSE_df[1,2],WSE_df[2,2]))
-        colnames(WSE1)<-"WSE"
+        WSE2 <-as.data.frame(WSE(WSE_df[ ,2],WSE_df[,3]))
+        WSE1 <-cbind.fill(WSE_df$Treatment,WSE2)
+        WSE1 <-na.omit(WSE1)
+        colnames(WSE1)<-c("Treatment","WSE")
       }else{warning("There is no data for calculating the Weed smothering efficiency")}
       
       if (nrow(FDW_df >0)) {
-        FDR1 <-as.data.frame(FDR(FDW_df[1,2],FDW_df[2,2]))
-        colnames(FDR1)<-"FDR"
+        FDR2 <-as.data.frame(FDR(FDW_df[ ,2],FDW_df[ ,3]))
+        FDR1 <-cbind.fill(FDW_df$Treatment,FDR2)
+        FDR1 <-na.omit(FDR1)
+        colnames(FDR1)<-c("Treatment","FDR")
       }else{warning("There is no data for calculating the Weed smothering efficiency")}
       res_list <-list("Weed Indices" = final_indices_df,
                       "RWD"=RDW1,
                       "WSE"=WSE1,
                       "FDR" = FDR1)
     }
-  else if (no_col == 8){
+  else if (no_col == 9){
       Indices_df <- df[,c(2:4)]
       Indices_df <- na.omit(Indices_df)
       
@@ -362,8 +366,10 @@ All_Indices<- function(...){
       }else{warning("There is no data for calculating the Relative dry weight")}
       
       if (nrow(WSE_df>0)) {
-        WSE1 <-as.data.frame(WSE(WSE_df[1,2],WSE_df[2,2]))
-        colnames(WSE1)<-"WSE"
+        WSE2 <-as.data.frame(WSE(WSE_df[ ,2],WSE_df[,3]))
+        WSE1 <-cbind.fill(WSE_df$Treatment,WSE2)
+        WSE1 <-na.omit(WSE1)
+        colnames(WSE1)<-c("Treatment","WSE")
       }else{warning("There is no data for calculating the Weed smothering efficiency")}
       
       res_list <-list("Weed Indices" = final_indices_df,
@@ -515,8 +521,8 @@ else{warning("Kindly check your excel datasheet. There is no data for indices ca
     AMI_df1 <- Ind_df$V7
     IWMI_df1 <- Ind_df$V8
     RWD_df1 <- df1[[1]]$RWD
-    WSE_df1 <- df1[[1]]$WSE
-    FDR_df1 <- df1[[1]]$FDR
+    WSE_df1 <- df1[[1]]$WSE[,2]
+    FDR_df1 <- df1[[1]]$FDR[,2]
     
     WCE_df <- cbind.fill(WCE_df,WCE_df1)
     WCI_df <- cbind.fill(WCI_df,WCI_df1)
@@ -541,7 +547,7 @@ else{warning("Kindly check your excel datasheet. There is no data for indices ca
       AMI_df1 <- Ind_df$V7
       IWMI_df1 <- Ind_df$V8
       RWD_df1 <- df1[[1]]$RWD
-      WSE_df1 <- df1[[1]]$WSE
+      WSE_df1 <- df1[[1]]$WSE[,2]
       
       WCE_df <- cbind.fill(WCE_df,WCE_df1)
       WCI_df <- cbind.fill(WCI_df,WCI_df1)
@@ -619,6 +625,10 @@ else{warning("Kindly check your excel datasheet. There is no data for indices ca
   rownames(WMI_df)<- df[1:(n1_WD),1]
   rownames(AMI_df)<- df[1:(n1_WD),1]
   rownames(IWMI_df)<- df[1:(n1_WD),1]
+  
+  if(nrow(WSE_df) != 0){rownames(WSE_df)<- WSE1[,1]}
+  if(nrow(FDR_df) != 0){rownames(FDR_df)<- FDR1[,1]}
+  
  
   WCE_df<- na.omit(WCE_df)
   WCI_df<- na.omit(WCI_df)
@@ -657,5 +667,4 @@ else{warning("Kindly check your excel datasheet. There is no data for indices ca
   
   saveWorkbook(wb, file = newfilepath, overwrite = TRUE)
   return(F_list);
-
 }
